@@ -1,0 +1,88 @@
+Open Watcom Linker Version 2.0 beta Jul 24 2023 02:10:23 (64-bit)
+Copyright (c) 2002-2023 The Open Watcom Contributors. All Rights Reserved.
+Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
+Created on:       23/07/24 23:22:20
+Executable Image: /home/cmard/Codes/OS/build/stage2.bin
+creating a RAW Binary Image executable
+
+
+                        +------------+
+                        |   Groups   |
+                        +------------+
+
+Group                           Address              Size
+=====                           =======              ====
+
+DGROUP                          000000a4             00000018
+
+
+
+                        +--------------+
+                        |   Segments   |
+                        +--------------+
+
+Segment                Class          Group          Address         Size
+=======                =====          =====          =======         ====
+
+_TEXT                  CODE           AUTO           00000000        00000013
+_TEXT                  CODE           AUTO           00000013        00000091
+CONST                  DATA           DGROUP         000000a4        00000016
+CONST2                 DATA           DGROUP         000000bc        00000000
+_DATA                  DATA           DGROUP         000000bc        00000000
+_ENTRY                                AUTO           000000bc        00000013
+
+
+                        +----------------+
+                        |   Memory Map   |
+                        +----------------+
+
+* = unreferenced symbol
++ = symbol only referenced locally
+
+Address        Symbol
+=======        ======
+
+Module: /home/cmard/Codes/OS/build/stage2/asm/main.obj(main.asm)
+000000bc       entry
+Module: /home/cmard/Codes/OS/build/stage2/asm/x86.obj(x86.asm)
+00000000       _x86_Video_WriteCharTeletype
+Module: /home/cmard/Codes/OS/build/stage2/c/main.obj(/home/cmard/Codes/OS/src/bootloader/stage2/main.c)
+00000013       _cstart_
+Module: /home/cmard/Codes/OS/build/stage2/c/stdio.obj(/home/cmard/Codes/OS/src/bootloader/stage2/stdio.c)
+00000037+      putc_
+00000062       puts_
+
+
+                        +---------------------+
+                        |   Module Segments   |
+                        +---------------------+
+
+! = 32-bit segment
+c = initialized communal data
+
+Module          Segment               Class           Address         Size
+======          =======               =====           =======         ====
+
+main.asm        _ENTRY                               000000bc         00000013
+x86.asm         _TEXT                 CODE           00000000         00000013
+/home/cmard/Codes/OS/src/bootloader/stage2/main.c
+                _TEXT                 CODE           00000013  !      00000024
+                CONST                 DATA           000000a4  !      00000016
+                CONST2                DATA           000000bc  !      00000000
+                _DATA                 DATA           000000bc  !      00000000
+/home/cmard/Codes/OS/src/bootloader/stage2/stdio.c
+                _TEXT                 CODE           00000037  !      0000006d
+                CONST                 DATA           000000bc  !      00000000
+                CONST2                DATA           000000bc  !      00000000
+                _DATA                 DATA           000000bc  !      00000000
+Warning! W1014: stack segment not found
+
+
+                        +-----------------------+
+                        |   Linker Statistics   |
+                        +-----------------------+
+
+Stack size:  0200 (512.)
+Memory size:  00cf (207.)
+Entry point address: 000000bc
+Link time: 00:00.11

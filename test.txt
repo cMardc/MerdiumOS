@@ -1,0 +1,2 @@
+Hello Merdium OS!
+If You Can Read This In FAT12 System, Then It Means That My Code Worked!

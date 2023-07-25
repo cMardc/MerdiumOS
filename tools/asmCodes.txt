@@ -1,0 +1,58 @@
+1. MOV [destination] [source] - Copies Data From Source (Register, Memory Reference, Constant) 
+    To Destination (Register Or Memory Reference)
+
+2. VAR: [type] [value] - Defines A Name And A Value For Variable Or A Label
+
+3. ARRAY: [type] [value1], [value2]... - Defines An Array Or List Of Labels With Same type
+
+4. STACK(TERM) - Something I Know From C
+
+5.Interrupts(TERM) - A Signal Which Makes The Processor Stop What It's Doing, In Order To Handle That Signal
+Triggers : 
+    -An Exception -> A Crictical Error(Dividing By Zero, Segmentation Fault, Page Fault)
+    -Hardware(Keyboard Press, Timer Tick, Disk Controller Finishing An Operation)
+    -Sofware (INT Instruction)
+    Example For Software Interrupts That Is Builtin On BIOS:
+        INT 10h -- Video
+        INT 11h -- Equidment Check
+        INT 12h -- Memory Size
+        INT 13h -- Disk I/Of
+        INT 14h -- Serial Communication
+        INT 15h -- Cassete
+        INT 16h -- Keyboard I/O
+
+    Example Of Usage : We Can Use VIDEO Interrupts To Print Text On Screen
+    VIDEO Modes : (INT 10h)
+        AH = 00h -- Set Video Mode
+        AH = 01h -- Set Cursor Shape
+        AH = 02h -- Set Cursor Position
+        AH = 03h -- Get Cursor Position And Shape
+        ...
+        AH = 0Eh -- Write Charachter In TTY Mode
+        ...
+
+        If We Use AH=0Eh:
+            AH = 0Eh
+            AL = ASCII Charachter To Write
+            BH = Page Number (Text Modes)
+            BL = Foreground Pixel Color (Graphics Mode)
+
+            Does Not Return Anything
+
+            -Cursor Advances After Write
+            -Charachters BEL (7), BS (8), LF (A), And CR (D) Are Treated As Control Codes
+ 
+
+6. FILE SYSTEM(TERM) - A Method Of Organizing Pieces Of Data (Files) On A Disk
+
+7. CMPSB - Compares The Two Bytes Located In Memory Addresses ds:si And es:di
+si and di Are Incremented (When Direction Flag = 0) Or Decremented (When Direction Flag = 1)
+Comparison Is Performed Simiarly To The CMP Instruction - A Substraction Is Performed
+, And The Flags Are Set Accordingly.
+cmpsw, cmpsd, cmpsq Are Equivalent For Comparing Words, Double Words, Quads.
+
+8. REPE - Repeats A String Instruction While The Operands Are Equal (Zero Flag = 1), Or Until cx Reaches 0
+cx Is Decremented On Each Iteration
+Comparison Is Performed Simiarly To The CMP Instruction - A Substraction Is Performed
+,And The Flags Are Set Accordingly.
+
