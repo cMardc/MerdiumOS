@@ -1,5 +1,5 @@
 # MerdiumOS
-Only prints "Hello, World!" to screen, nothing more.
+Only prints "Hello, World!" to screen, nothing else.
 
 <pre>
 make<br>
