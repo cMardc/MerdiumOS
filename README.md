@@ -1,8 +1,8 @@
 # MerdiumOS
+Only prints "Hello, World!" to screen, nothing more.
 
-<div id="cmd">
+<pre>
 make<br>
 chmod +x run.sh<br>
 ./run.sh<br>
-</div>
-
+</pre>
